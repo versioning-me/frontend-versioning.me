@@ -1,0 +1,86 @@
+// Component
+$component_scales: (
+  auto: auto,
+  0: 0,
+  3xs: 0.125rem,
+  2xs: 0.25rem,
+  xs: 0.5rem,
+  s: 0.75rem,
+  m: 1rem,
+  l: 1.25rem,
+  xl: 1.5rem,
+  2xl: 2rem,
+  3xl: 2.5rem
+);
+@mixin component_margin($top: null, $right: null, $bottom: null, $left: null) {
+  @if $top != null {
+    margin-top: map-get($component_scales, $top);
+  }
+  @if $right != null {
+    margin-right: map-get($component_scales, $right);
+  }
+  @if $bottom != null {
+    margin-bottom: map-get($component_scales, $bottom);
+  }
+  @if $left != null {
+    margin-left: map-get($component_scales, $left);
+  }
+}
+@mixin component_padding($top: null, $right: null, $bottom: null, $left: null) {
+  @if $top != null {
+    padding-top: map-get($component_scales, $top);
+  }
+  @if $right != null {
+    padding-right: map-get($component_scales, $right);
+  }
+  @if $bottom != null {
+    padding-bottom: map-get($component_scales, $bottom);
+  }
+  @if $left != null {
+    padding-left: map-get($component_scales, $left);
+  }
+  // ex.) @include component_padding(s,0,l); @include component_padding($top: auto, $left: xl);
+  // output.) padding-top: 0.75rem;padding-right: 0;padding-bottom: 1.5rem; padding-top: auto;padding-left: 2rem;
+}
+// Layout
+$layout_scales: (
+  auto: auto,
+  0: 0,
+  3xs: 1rem,
+  2xs: 1.25rem,
+  xs: 1.5rem,
+  s: 2rem,
+  m: 2.5rem,
+  l: 4rem,
+  xl: 5rem,
+  2xl: 6rem,
+  3xl: 10rem
+);
+@mixin layout_margin($top: null, $right: null, $bottom: null, $left: null) {
+  @if $top != null {
+    margin-top: map-get($layout_scales, $top);
+  }
+  @if $right != null {
+    margin-right: map-get($layout_scales, $right);
+  }
+  @if $bottom != null {
+    margin-bottom: map-get($layout_scales, $bottom);
+  }
+  @if $left != null {
+    margin-left: map-get($layout_scales, $left);
+  }
+}
+@mixin layout_padding($top: null, $right: null, $bottom: null, $left: null) {
+  @if $top != null {
+    padding-top: map-get($layout_scales, $top);
+  }
+  @if $right != null {
+    padding-right: map-get($layout_scales, $right);
+  }
+  @if $bottom != null {
+    padding-bottom: map-get($layout_scales, $bottom);
+  }
+  @if $left != null {
+    padding-left: map-get($layout_scales, $left);
+  }
+}

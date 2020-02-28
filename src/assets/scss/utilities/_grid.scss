@@ -1,0 +1,28 @@
+// Grid
+$grid_scales: (
+  width_01: 48rem, // 768px
+  width_02: 85.375rem, // 1366px
+  width_ratio_01: 72%,
+  width_ratio_02: 88%
+);
+@function grid($key) {
+  @return map-get($grid_scales, $key);
+}
+// Gutter
+$gutter_scales: (
+  gutter_01: 1.25rem, // 20px
+  gutter_02: 1.5rem // 24px
+);
+@function gutter($key) {
+  @return map-get($gutter_scales, $key);
+}
+// Ratio
+$ratio_scales: (
+  wide: 56.25%,
+  gold: 61.8%,
+  silver: 70.7213578%,
+  platinum: 57.7367205%
+);
+@function ratio($key) {
+  @return map-get($ratio_scales, $key);
+}

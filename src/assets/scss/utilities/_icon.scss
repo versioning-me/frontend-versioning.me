@@ -1,0 +1,20 @@
+// Icon
+$icon_values: (
+  arrow_left: "\a001",
+  arrow_right: "\a002",
+  contact: "\a003",
+  instagram: "\a004",
+  play: "\a005",
+  shop: "\a006",
+  twitter: "\a007"
+);
+
+@mixin icon($key) {
+  content: map-get($icon_values, $key);
+  font-family: 'two_icon' !important;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+}

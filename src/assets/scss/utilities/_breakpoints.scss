@@ -1,0 +1,22 @@
+// Min-width
+$breakpoint_min: (
+  s: 30rem,
+  m: 48rem,
+  l: 64rem
+);
+@mixin media_query_min($key) {
+  @media (min-width: map-get($breakpoint_min, $key)) {
+    @content;
+  }
+}
+// Max-width
+$breakpoint_max: (
+  s: 29.9999999rem,
+  m: 47.9999999rem,
+  l: 63.9999999rem
+);
+@mixin media_query_max($key) {
+  @media (max-width: map-get($breakpoint_max, $key)) {
+    @content;
+  }
+}

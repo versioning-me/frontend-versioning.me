@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700|Noto+Sans+JP:300,400,700');
+
+* {
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  list-style: none;
+  user-select: unset!important;
+
+  &::selection {
+    background-color: $blue_300;
+  }
+}
+
+body {
+  font-family: 'Lato', 'Noto Sans JP', "Helvetica Neue", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  @include typo(6xs);
+  @include weight(light);
+  word-wrap: break-word;
+  color: $black;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+strong {
+  @include weight(regular);
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+  pointer-events: auto;
+}
+
+button,
+dd,
+dl,
+li,
+ol,
+p,
+ul {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+sub,
+sup {
+  @include typo(min);
+}
+
+button,
+input,
+select,
+textarea {
+  @include typo(6xs);
+  @include weight(light);
+  border-radius: 0;
+}
+
+input[type="submit"],
+input[type="button"] {
+  appearance: button;
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+
+  &::-webkit-search-decoration {
+    display: none;
+  }
+
+  &:focus {
+    outline-offset: -0.125rem;
+  }
+}
+
+audio,
+embed,
+object,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: none;
+  width: 100%;
+}
