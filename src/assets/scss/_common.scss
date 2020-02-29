@@ -8,9 +8,30 @@ html, body{
 .styleB{border:3px dotted rgba(0,200,0,0.7);}
 .button{border:1px solid green; padding:3px; border-radius:5px; background-color:white;cursor: pointer;}
 .button p {color:green; margin-top:10px; margin-left:10px; margin-right: 10px;}
-.files-area{
+
+#channels{
+  width: 20%;
+  max-width: 200px;
+  float: left;
+}
+#files{
+  width: 40%;
+  float: left;
+}
+#versions{
+  width: 40%;
+  float: left;
+}
+.sub-header{
+  height: 20%;
+}
+.files-content{
   overflow-y: scroll;
-  height: 100vh;
+  //height: 100vh;
+  min-height: 60%;
+}
+.files-form{
+  height: 20%;
 }
 .main{
   border-collapse:  collapse; /* セルの線を重ねる */

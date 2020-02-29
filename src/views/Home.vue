@@ -1,38 +1,47 @@
 <template>
   <div id="wrapper">
     <h1>Versioning Me</h1>
-    <table class="main">
-        <tr>
-            <td valign="top">
-                <h2>チャンネル一覧</h2>
-            </td>
-            <td valign="top">
-                <h2>ファイル一覧</h2>
-                <div class="files-area" ref="target">
-                  <div class="files" v-for="(files, index) in info" :key="index">
-                    {{ files.VersionName }}<br>
-                    <img :src="files.Url" style="max-width: 200px;">
-                  </div>
-                </div>
-                <form>
-                    <h2>ファイルアップロード</h2>
-                    <div id="upload" class="form-group commonStyle" v-bind:class="{'styleA':styleA, 'styleB':styleB}" @dragover.prevent="changeStyle($event,'ok')" @dragleave.prevent="changeStyle($event,'no')" @drop.prevent="selectedFile($event)">
-                      <input @change="selectedFile($event)" type="file" name="file" style="display:none;">
-              
-                      <!-- ここからプレビュー機能の部分 -->
-                      <p>またはここに画像ファイルをドラッグ＆ドロップ</p>
-                      <img v-show="preview" v-bind:src="preview" style="width:300px;">
-                      <p v-show="preview"> {{name}} </p>
-                      <!-- ここまでプレビュー機能の部分 -->
-                    </div>
-                    <button class="button" type="button" @click="upload">投稿する</button>
-                </form>
-            </td>
-            <td valign="top">
-                <h2>バージョン一覧</h2>
-            </td>
-        </tr>
-    </table>
+    <div id="channels">
+      <div class="sub-header">
+        <h2>チャンネル一覧</h2>
+      </div>
+      <div class="channels-content">
+        チャンネルコンテンツ
+      </div>
+    </div>
+    <div id="files">
+      <div class="sub-header">
+        <h2>ファイル一覧</h2>
+      </div>
+      <div class="files-content" ref="target">
+        <div class="files" v-for="(files, index) in info" :key="index">
+          {{ files.VersionName }}<br>
+          <img :src="files.Url" style="max-width: 200px;">
+        </div>
+      </div>
+      <div class="files-form" ref="target">
+        <form>
+            <h2>ファイルアップロード</h2>
+            <div id="upload" class="form-group commonStyle" v-bind:class="{'styleA':styleA, 'styleB':styleB}" @dragover.prevent="changeStyle($event,'ok')" @dragleave.prevent="changeStyle($event,'no')" @drop.prevent="selectedFile($event)">
+              <input @change="selectedFile($event)" type="file" name="file" style="display:none;">
+              <!-- ここからプレビュー機能の部分 -->
+              <p>またはここに画像ファイルをドラッグ＆ドロップ</p>
+              <img v-show="preview" v-bind:src="preview" style="width:300px;">
+              <p v-show="preview"> {{name}} </p>
+              <!-- ここまでプレビュー機能の部分 -->
+            </div>
+            <button class="button" type="button" @click="upload">投稿する</button>
+        </form>
+      </div>
+    </div>
+    <div id="versions">
+      <div class="sub-header">
+        <h2>バージョン一覧</h2>
+      </div>
+      <div class="versions-content">
+        バージョンコンテンツ
+      </div>
+    </div>
   </div>
 </template>
 
