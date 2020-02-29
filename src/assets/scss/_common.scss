@@ -2,54 +2,54 @@ html, body{
   overflow: hidden;
 }
 .commonStyle{
-  padding:30px; text-align:center; margin:30px; width:400px;
+  padding:10px; text-align:center; margin:10px;;
 }
 .styleA{border:3px dotted gray;}
 .styleB{border:3px dotted rgba(0,200,0,0.7);}
 .button{border:1px solid green; padding:3px; border-radius:5px; background-color:white;cursor: pointer;}
 .button p {color:green; margin-top:10px; margin-left:10px; margin-right: 10px;}
+* {
+  margin: 0;
+  padding: 0;
+}
 
-#channels{
-  width: 20%;
-  max-width: 200px;
-  float: left;
+body, html, .section, .content{
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
-#files{
-  width: 40%;
-  float: left;
+.versioning_items {
+  display: flex;
+  height: 100vh;
 }
-#versions{
-  width: 40%;
-  float: left;
+.versioning_items .versioning_item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background: #cc9;
 }
-.sub-header{
-  height: 20%;
+.versioning_items .versioning_item .versioning_item_top {
+  display: flex;
+  height: 50px;
 }
-.files-content{
+.versioning_items .versioning_item .versioning_item_form {
+  height: 300px;
+}
+.versioning_items .versioning_item .versioning_item_top img {
+  width: 40px;
+  height: 40px;
+}
+.versioning_items .versioning_item .versioning_item_top p {
+
+}
+.versioning_items .versioning_item .versioning_item_txt {
+  background: #fff;
+  flex: 1;
   overflow-y: scroll;
-  //height: 100vh;
-  min-height: 60%;
 }
-.files-form{
-  height: 20%;
-}
-.main{
-  border-collapse:  collapse; /* セルの線を重ねる */
-  width:  100%;               /* 幅指定 */
-}
-
-.main th,td {
-  border: solid 1px;          /* 枠線指定 */
-  padding: 10px;
-}
-
-
-
-.main th {
-  width:  100px;              /* 幅指定 */
-  font-weight:  normal;       /* 文字の太さ指定 */
-}
-
-.main td {
-  font-weight:  bold;         /* 文字の太さ指定 */
+.versioning_items .versioning_item .versioning_item_txt p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.4;
 }
