@@ -18,30 +18,19 @@
             <div class="files" v-for="(files, index) in info" :key="index">
               {{ files.VersionName }}<br>
               <img :src="files.Url" style="max-width: 200px;">
-              <form>
-                  <div id="upload" class="form-group commonStyle" v-bind:class="{'styleA':styleA, 'styleB':styleB}" @dragover.prevent="changeStyle($event,'ok')" @dragleave.prevent="changeStyle($event,'no')" @drop.prevent="selectedFile($event, files.Id)">
-                    <input @change="selectedFile($event, files.Id)" type="file" name="file" style="display:none;">
-
-                    <!-- ここからプレビュー機能の部分 -->
-                    <p>またはここに画像ファイルをドラッグ＆ドロップ</p>
-                    <img v-show="`preview_${files.Id}`" v-bind:src="`preview_${files.Id}`" style="max-height: 100px;max-width: 200px;">
-                    <p v-show="`preview_${files.Id}`"> {{name}} </p>
-                    <!-- ここまでプレビュー機能の部分 -->
-                  </div>
-                  <button class="button" type="button" @click="upload">投稿する</button>
-              </form>
+              <Upload :file_id="files.Id" />
             </div>
           </div>
         </div>
         <div class="versioning_item_form">
           <form>
               <h2>ファイルアップロード</h2>
-              <div id="upload" class="form-group commonStyle" v-bind:class="{'styleA':styleA, 'styleB':styleB}" @dragover.prevent="changeStyle($event,'ok')" @dragleave.prevent="changeStyle($event,'no')" @drop.prevent="selectedFile($event, 0)">
-                <input @change="selectedFile($event, 0)" type="file" name="file" style="display:none;">
+              <div id="upload" class="form-group commonStyle" v-bind:class="{'styleA':styleA, 'styleB':styleB}" @dragover.prevent="changeStyle($event,'ok')" @dragleave.prevent="changeStyle($event,'no')" @drop.prevent="selectedFile($event)">
+                <input @change="selectedFile($event)" type="file" name="file" style="display:none;">
                 <!-- ここからプレビュー機能の部分 -->
                 <p>またはここに画像ファイルをドラッグ＆ドロップ</p>
-                <img v-show="preview_0" v-bind:src="preview_0" style="max-height: 100px;max-width: 200px;">
-                <p v-show="preview_0"> {{name}} </p>
+                <img v-show="preview" v-bind:src="preview" style="max-height: 100px;max-width: 200px;">
+                <p v-show="preview"> {{name}} </p>
                 <!-- ここまでプレビュー機能の部分 -->
               </div>
               <button class="button" type="button" @click="upload">投稿する</button>
@@ -61,8 +50,12 @@
 </template>
 
 <script>
+import Upload from '@/components/partials/Upload.vue'
 export default {
   name: "Home",
+  components: {
+    Upload,
+  },
   data() {
     return {
       preview: "",
@@ -107,9 +100,7 @@ methods: {
         .get("http://localhost:8080/files")
         .then(response => (this.info = response.data.files))
     },
-    selectedFile: function(event, file_id) {
-      console.log(file_id)
-      //const preview = `"preview_${file_id}"`;
+    selectedFile: function(event) {
       this.styleA = true;
       this.styleB = false;
 
@@ -122,8 +113,7 @@ methods: {
       //const file = files[0];
       const reader = new FileReader();
       reader.onload = event => {
-          //this.preview = event.target.result;
-          this.$file_id = event.target.result;
+          this.preview = event.target.result;
       };
       reader.readAsDataURL(this.uploadFile);
       this.name = files[0].name;
