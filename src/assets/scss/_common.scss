@@ -12,7 +12,6 @@ html, body{
   margin: 0;
   padding: 0;
 }
-
 body, html, .section, .content{
   height: 100vh;
   margin: 0;
@@ -21,35 +20,32 @@ body, html, .section, .content{
 .versioning_items {
   display: flex;
   height: 100vh;
-}
-.versioning_items .versioning_item {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  background: #cc9;
-}
-.versioning_items .versioning_item .versioning_item_top {
-  display: flex;
-  height: 50px;
-}
-.versioning_items .versioning_item .versioning_item_form {
-  height: 300px;
-}
-.versioning_items .versioning_item .versioning_item_top img {
-  width: 40px;
-  height: 40px;
-}
-.versioning_items .versioning_item .versioning_item_top p {
-
-}
-.versioning_items .versioning_item .versioning_item_txt {
-  background: #fff;
-  flex: 1;
-  overflow-y: scroll;
-}
-.versioning_items .versioning_item .versioning_item_txt p {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 1.4;
+  .versioning_item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background: #cc9;
+    .versioning_item_top {
+      display: flex;
+      height: 50px;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .versioning_item_form {
+      height: 300px;
+    }
+    .versioning_item_txt {
+      background: #fff;
+      flex: 1;
+      overflow-y: scroll;
+      p {
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 1.4;
+      }
+    }
+  }
 }
