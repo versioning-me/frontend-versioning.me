@@ -3,6 +3,7 @@
       <h2>ファイルアップロード</h2>
       <div id="upload" class="form-group commonStyle" v-bind:class="{'styleA':styleA, 'styleB':styleB}" @dragover.prevent="changeStyle($event,'ok')" @dragleave.prevent="changeStyle($event,'no')" @drop.prevent="selectedFile($event)">
         <input @change="selectedFile($event)" type="file" name="file" style="display:none;">
+        <input type="hidden" name="file_id" :value="file_id" />
         <!-- ここからプレビュー機能の部分 -->
         <p>画像ID-{{ file_id }} を更新するファイルをドラッグ＆ドロップ</p>
         <img v-show="preview" v-bind:src="preview" style="max-height: 100px;max-width: 200px;">
