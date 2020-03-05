@@ -40,7 +40,9 @@ export default {
       //let files = e.target.files;
       const files = event.target.files ? event.target.files : event.dataTransfer.files;
       this.uploadFile = files[0];
-      console.log(this.uploadFile)
+      //console.log(this.uploadFile)
+      //console.log(this.file_id)
+
       //const file = files[0];
       const reader = new FileReader();
       reader.onload = event => {
@@ -54,8 +56,8 @@ export default {
     upload:function(){
       // FormData を利用して File を POST する
       let formData = new FormData();
-      console.log(123)
       formData.append('file', this.uploadFile);
+      formData.append('file_id', this.file_id);
       console.log(this.uploadFile)
       let config = {
           withCredentials: true,
