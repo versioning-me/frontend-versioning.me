@@ -66,7 +66,7 @@ export default {
           }
       };
       this.axios
-        .post('http://localhost:8080/file', formData, config)
+        .post('http://localhost:8080/new', formData, config)
         //.then(response => (this.info = response.data.files))
         .then((response) => {
           this.info = response.data.files;
